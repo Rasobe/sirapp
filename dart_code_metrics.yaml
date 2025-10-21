@@ -1,0 +1,12 @@
+dart-code-metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    lines-of-executable-code: 50
+    maximum-nesting-level: 5
+  rules:
+    - avoid-returning-widgets
+    - avoid-unused-parameters
+    - prefer-trailing-comma
+  anti-patterns:
+    - long-method
+    - long-parameter-list
