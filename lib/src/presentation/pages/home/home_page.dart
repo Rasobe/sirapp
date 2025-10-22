@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hexagonal_architecture_template/src/presentation/state/index.dart';
+import 'package:hexagonal_architecture_template/src/presentation/widgets/widgets.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -9,39 +10,21 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final current = ref.watch(appThemeProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: DropdownButton<AppTheme>(
-              value: current,
-              underline: const SizedBox.shrink(),
-              onChanged: (value) {
-                if (value != null) {
-                  ref.read(appThemeProvider.notifier).setTheme(value);
-                }
-              },
-              items: const [
-                DropdownMenuItem(
-                  value: AppTheme.light,
-                  child: Text('Light'),
-                ),
-                DropdownMenuItem(
-                  value: AppTheme.dark,
-                  child: Text('Dark'),
-                ),
-                DropdownMenuItem(
-                  value: AppTheme.red,
-                  child: Text('Red'),
-                ),
-              ],
+      appBar: AppBar(title: const Center(child: Text('Raúl y Silvia'))),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Bienvenidos a Raúl y Silvia',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
-          )
-        ],
-      ),
-      body: const Center(
-        child: Text('Welcome to Home!'),
+            const SizedBox(height: 24),
+            const StreakCard(),
+          ],
+        ),
       ),
     );
   }

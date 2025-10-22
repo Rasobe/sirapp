@@ -5,5 +5,6 @@ ThemeData buildLightTheme() {
     brightness: Brightness.light,
     colorSchemeSeed: Colors.blue,
     useMaterial3: true,
+    scaffoldBackgroundColor: Colors.grey[50],
   );
 }
